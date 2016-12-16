@@ -1,13 +1,35 @@
 doctype html
 html(lang='en')
-  head
-    title Jade
-  body
-    h1 #{language} - node template engine
-    #container.col
-      p You are amazing
-      p
-        | Jade is a terse and simple
-        | templating language with a
-        | strong focus on performance
-        | and powerful features.
+	head
+		meta(charset='utf-8')
+		link(href='/main.css', rel='stylesheet')
+		link(href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300', rel='stylesheet')
+		title Генератор ВКР Магистра
+	body
+		form(action='/generate' role="form" method='post')
+			.header ВКР Магистра
+			.input-label Фамилия студента
+			input(type='text', name='student_lastname', value='' required)
+			.input-label Имя студента
+			input(type='text', name='student_firstname', value='' required)
+			.input-label Отчество студента
+			input(type='text', name='student_patronym', value='' required)
+			.input-label Номер группы
+			input(type='text', name='group', value='' required)
+			.input-label Персональный шифр
+			input(type='text', name='student_code', value='' required)
+			.input-label Фамилия преподавателя
+			input(type='text', name='professor_lastname', value='' required)
+			.input-label Имя преподавателя
+			input(type='text', name='professor_firstname', value='' required)
+			.input-label Отчество преподавателя
+			input(type='text', name='professor_patronym', value='' required)
+			.input-label Год выполнения работы
+			input(type='text', name='year', value='' required)
+			.input-label Дисциплина
+			input(type='text', name='subject', value='' required)
+			.input-label Тема работы
+			input(type='text', name='topic', value='' required)
+			input.submit(type='submit', value='Сгенерировать docx файл')
+			a.download(href='/output.docx' download) Скачать файл
+		script(href='scripts/main.js')
