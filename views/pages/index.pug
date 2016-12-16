@@ -6,7 +6,7 @@ html(lang='en')
 		link(href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300', rel='stylesheet')
 		title Генератор ВКР Магистра
 	body
-		form(action='/generate' role="form" method='post')
+		form.vkr-form(action='/generate' role="form" method='post')
 			.header ВКР Магистра
 			.input-label Фамилия студента
 			input(type='text', name='student_lastname', value='' required)
@@ -32,4 +32,5 @@ html(lang='en')
 			input(type='text', name='topic', value='' required)
 			input.submit(type='submit', value='Сгенерировать docx файл')
 			a.download(href='/output.docx' download) Скачать файл
-		script(href='scripts/main.js')
+		script(src='https://code.jquery.com/jquery-3.1.1.min.js', integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=', crossorigin='anonymous')
+		script(type='text/javascript' src='js/main.js')

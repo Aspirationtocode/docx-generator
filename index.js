@@ -14,7 +14,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'pug');
 
 app.get('/', function(request, response) {
-  response.render('pages/index', {language: 'javascript'});
+  response.render('pages/index');
 });
 
 app.listen(app.get('port'), function() {
@@ -26,6 +26,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.post('/generate', (req, res) => {
   const data = req.body;
+  console.log(data)
   const options = {
     template: {
       filePath: 'public/input.docx',
@@ -52,5 +53,4 @@ app.post('/generate', (req, res) => {
       console.log('File written')
     }
   })
-  res.render('pages/index');
 })

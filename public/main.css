@@ -61,7 +61,6 @@ body {
 
 form {
   width: 400px;
-  background-color: rgba(80, 114, 153, .9);
   padding: 120px 60px;
   padding-top: 40px;
   border-radius: 20px;
@@ -69,6 +68,7 @@ form {
   flex-direction: column;
   -ms-align-items: center;
   align-items: center;
+	background-color: rgba(80, 114, 153, .9);
 }
 
 input {
@@ -125,4 +125,15 @@ a:hover {
   font-size: 30px;
   margin-bottom: 40px;
   font-weight: bold;
+}
+
+.vkr-form {
+	transition: all ease-in-out .6s;
+	transform: scale(.1);
+	opacity: 0;
+}
+
+.vkr-form.active {
+	transform: scale(1);
+	opacity: 1;
 }
