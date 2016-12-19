@@ -10,14 +10,15 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "ejs": "2.4.1",
-    "express": "4.13.3",
-    "pug": "^2.0.0-beta6",
     "body-parser": "^1.15.2",
     "docxtemplater": "^3.0.0",
+    "ejs": "2.4.1",
+    "express": "4.13.3",
     "express-form": "^0.12.6",
     "generate-docx": "^1.0.0",
-    "jszip": "^2.6.1"
+    "jszip": "^2.6.1",
+    "pug": "^2.0.0-beta6",
+    "underscore": "^1.8.3"
   },
   "repository": {
     "type": "git",

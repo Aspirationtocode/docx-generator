@@ -1,0 +1,15 @@
+[
+    {
+        "student_firstname": "Е",
+        "student_lastname": "Кулажский",
+        "student_patronym": "Д",
+        "group": "ИСБО-02-15",
+        "student_code": "student_code",
+        "professor_firstname": "Д",
+        "professor_lastname": "Мирзоян",
+        "professor_patronym": "И",
+        "year": "2017",
+        "subject": "Информатика",
+        "topic": "Операционные системы"
+    }
+]

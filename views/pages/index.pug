@@ -6,7 +6,7 @@ html(lang='en')
 		link(href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300', rel='stylesheet')
 		title Генератор ВКР Магистра
 	body
-		form.vkr-form(action='/generate' role="form" method='post')
+		form.vkr-form(action='/generate' method='POST')
 			.header ВКР Магистра
 			.input-label Фамилия студента
 			input(type='text', name='student_lastname', value='' required)
@@ -30,7 +30,32 @@ html(lang='en')
 			input(type='text', name='subject', value='' required)
 			.input-label Тема работы
 			input(type='text', name='topic', value='' required)
-			input.submit(type='submit', value='Сгенерировать docx файл')
+			input.submit(type='submit' value='Сгенерировать docx файл')
 			a.download(href='/output.docx' download) Скачать файл
+		.vkr-list-wrapper
+			ul.vkr-list
+				.vkr-list__header Уже были сгенерированы:
+				- if(listData)
+					each item in listData
+						li.vkr-list-item
+							.vkr-list-item__main-info #{item.student_lastname} #{item.student_firstname}. #{item.student_patronym}. #{item.topic}
+							.vkr-list-item__extra-info
+								.vkr-list-item__group.vkr-list-item__extra-info-item
+									| Группа:
+									span.vkr-list-item__descr #{item.group}
+								.vkr-list-item__student_code.vkr-list-item__extra-info-item
+									| Шифр:
+									span.vkr-list-item__descr #{item.student_code}
+								.vkr-list-item__professor_name.vkr-list-item__extra-info-item
+									| Преподаватель:
+									span.vkr-list-item__descr #{item.professor_lastname} #{item.professor_firstname}. #{item.professor_patronym}
+								.vkr-list-item__year.vkr-list-item__extra-info-item
+									| Год:
+									span.vkr-list-item__descr #{item.year}
+								.vkr-list-item__subject.vkr-list-item__extra-info-item
+									| Предмет:
+									span.vkr-list-item__descr #{item.subject}
+
+
 		script(src='https://code.jquery.com/jquery-3.1.1.min.js', integrity='sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=', crossorigin='anonymous')
 		script(type='text/javascript' src='js/main.js')
