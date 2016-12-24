@@ -30,14 +30,14 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.post('/generate', (req, res) => {
   const data = req.body;
   const inputData = {
-    student_firstname: data.student_firstname.slice(0, 1),
+    student_firstname: data.student_firstname.slice(0,1),
     student_lastname: data.student_lastname,
-    student_patronym: data.student_patronym.slice(0, 1),
+    student_patronym: data.student_patronym.slice(0,1),
     group: data.group,
     student_code: data.student_code,
-    professor_firstname: data.professor_firstname.slice(0, 1),
+    professor_firstname: data.professor_firstname.slice(0,1),
     professor_lastname: data.professor_lastname,
-    professor_patronym: data.professor_patronym.slice(0, 1),
+    professor_patronym: data.professor_patronym.slice(0,1),
     year: data.year,
     subject: data.subject,
     topic: data.topic,
@@ -46,7 +46,7 @@ app.post('/generate', (req, res) => {
   fs.readFile('public/data.json', 'utf8' , (err, jsonData) => {
     if (err) throw err;
     const listData = JSON.parse(jsonData);
-    listData.push(inputData);
+    listData.push(data);
     fs.writeFileSync('public/data.json', JSON.stringify(listData, null, 4));
   })
 

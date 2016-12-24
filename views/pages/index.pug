@@ -3,7 +3,7 @@ html(lang='en')
 	head
 		meta(charset='utf-8')
 		meta(name="viewport" content="width=device-width, initial-scale=1")
-		link(href='/main.css', rel='stylesheet')
+		link(href='/css/main.css', rel='stylesheet')
 		link(href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300', rel='stylesheet')
 		title Генератор ВКР Магистра
 	body
@@ -36,10 +36,12 @@ html(lang='en')
 		.vkr-list-wrapper
 			ul.vkr-list
 				.vkr-list__header Уже были сгенерированы:
+				input(placeholder='фильтровать список..').vkr-list__search
 				- if(listData)
-					each item in listData
-						li.vkr-list-item
-							.vkr-list-item__main-info #{item.student_lastname} #{item.student_firstname}. #{item.student_patronym}. #{item.topic}
+					each item, i in listData
+						li(data-index=i).vkr-list-item
+							.vkr-list-item__main-info #{item.student_lastname} #{item.student_firstname.slice(0, 1)}. #{item.student_patronym.slice(0, 1)}. #{item.topic}
+								.vkr-list-item__repeat
 							.vkr-list-item__extra-info
 								.vkr-list-item__group.vkr-list-item__extra-info-item
 									| Группа:
@@ -49,7 +51,7 @@ html(lang='en')
 									span.vkr-list-item__descr #{item.student_code}
 								.vkr-list-item__professor_name.vkr-list-item__extra-info-item
 									| Преподаватель:
-									span.vkr-list-item__descr #{item.professor_lastname} #{item.professor_firstname}. #{item.professor_patronym}
+									span.vkr-list-item__descr #{item.professor_lastname} #{item.professor_firstname.slice(0, 1)}. #{item.professor_patronym.slice(0, 1)}
 								.vkr-list-item__year.vkr-list-item__extra-info-item
 									| Год:
 									span.vkr-list-item__descr #{item.year}
